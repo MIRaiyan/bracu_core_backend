@@ -1,4 +1,4 @@
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs"); // to HASH PASSWORD
 const User = require("../models/User");
 
 // Update User Profile
@@ -6,6 +6,12 @@ exports.updateProfile = async (req, res) => {
   try {
     const userId = req.user.userId; // Extract user ID from authenticated token :)
     const updateData = { ...req.body }; // Clone the request body to avoid modifying it directly
+
+    const {emergencyContact}= updateData;
+    if (emergencyContact){
+    const {name,relation,phoneNumber}=emergencyContact;
+    updateData.emergencyContact={name,relation,phoneNumber};
+    }
 
     // Remove the password field if it exists in the update data
     if (updateData.password) {

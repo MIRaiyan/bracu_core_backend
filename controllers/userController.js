@@ -43,6 +43,7 @@ exports.updateProfile = async (req, res) => {
 exports.updatePassword = async (req, res) => {
   try {
     const userId = req.user.userId; // Extract user ID from authenticated token
+    console.log("Password update requested by:", req.user.userId);
     const { oldPassword, newPassword } = req.body; // Extract old and new passwords from request body
 
     // Validate input
@@ -122,3 +123,4 @@ exports.getProfile = async (req, res) => {
     res.status(500).json({ message: "Server error", error: error.message });
   }
 };
+

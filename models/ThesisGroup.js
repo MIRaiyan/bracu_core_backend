@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 
 const thesisGroupSchema = new mongoose.Schema({
-  email: { type: String, required: true },
+  userId:{type:String, required:true,unique:true},
+  email: { type: String, required: true, unique:true },
   possibleDomains: [String],
   possibleTopics: [String],
   membersNeeded: { type: Number, required: true },

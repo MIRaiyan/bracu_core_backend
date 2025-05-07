@@ -4,6 +4,7 @@ const courseCtrl = require("../controllers/courseMaterialController");
 
 router.post("/", courseCtrl.addCourseMaterial);
 router.get("/", courseCtrl.getAllCourseMaterials);
+router.get("/code/:courseCode", courseCtrl.getCourseMaterialByCode);
 router.put("/:id", courseCtrl.updateCourseMaterial);
 router.delete("/:id", courseCtrl.deleteCourseMaterial);
 

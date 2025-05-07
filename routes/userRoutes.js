@@ -10,6 +10,6 @@ router.get("/profile", authMiddleware, getProfile);
 router.put("/update", authMiddleware, updateProfile);
 
 // Update user password
-router.put("/update_password", authMiddleware, updatePassword);
+router.put("/update-password", authMiddleware, updatePassword);
 
 module.exports = router;
